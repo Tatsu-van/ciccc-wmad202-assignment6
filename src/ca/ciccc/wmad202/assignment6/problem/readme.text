@@ -1,0 +1,48 @@
+
+Potential Class/Properties
+
+*Noun
+Table, Items, Water, Cylindrical, Cuboid, Cube, Color, Radius, height, width, length
+
+*Classes
+Table: Has-A --> Items
+Items: Has-A --> Color, Volume, Height,
+
+// Water: Has-A --> X (Value)
+
+Cylindrical: Has-A --> Color, Radius, Height,
+Cuboid: Has-A --> Color, Width, ,Length, Height
+Cube: Has-A --> Color, Height (= Width = Length)
+
+// Color: Has-A --> X (Value)
+
+------------------------------------
+Table: Has-A --> Items
+Items: Has-A --> Color, Volume, Height,
+
+Cylindrical: Has-A --> Color, Radius, Height,
+Cuboid: Has-A --> Color, Width, ,Length, Height
+Cube: Has-A --> Color, Height (= Width = Length)
+
+Cylindrical: Is-A --> Item + radius
+Cuboid: Is-A --> Item + Width, ,Length
+Cube: Is-A --> Item
+
+SuperClass: Item
+SubClass: Cylindrical, Cuboid, Cube
+
+-------------------------------------------
+Behaviors (Method)
+
+Table:
+--- Get total volume
+--- Get total volume for cuboid
+--- Get total volume in yellow
+
+Item:
+--- get volume
+--- get color
+
+Cylindrical: Is-A --> Item + radius
+Cuboid: Is-A --> Item + Width, ,Length
+Cube: Is-A --> Item
