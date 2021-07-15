@@ -9,10 +9,10 @@ public class Assignment6Driver {
     public static void run() {
         System.out.println("Assignment6");
 
-//        TestProblem.test();
+        TestProblem.test();
 
 //        ApplicationDriver.test();
 
-        ShoppingCartTest.test();
+//        ShoppingCartTest.test();
     }
 }

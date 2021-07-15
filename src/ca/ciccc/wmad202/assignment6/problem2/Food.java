@@ -52,7 +52,7 @@ public class Food extends Item {
     public void getProductInfo() {
         super.getProductInfo();
         System.out.println("Calorie: " + productCalorie);
-        System.out.println("Size: " + productSize);
+        System.out.println("Size: " + productSize + " lb");
         System.out.print("Ingredients: ");
         for(String item : foodIngredients){
             System.out.print(item + ", ");

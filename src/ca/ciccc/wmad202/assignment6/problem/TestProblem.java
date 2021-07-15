@@ -1,5 +1,7 @@
 package ca.ciccc.wmad202.assignment6.problem;
 
+import java.util.ArrayList;
+
 public class TestProblem {
     public static void test(){
         Item item1 = new Cylindrical(Item.Color.Yellow, 10, 5);
@@ -34,6 +36,30 @@ public class TestProblem {
         System.out.println("Total volume of Gray :" + table.getTotalVolume(Item.Color.Gray));
         System.out.println("Total volume of Green :" + table.getTotalVolume(Item.Color.Green));
 
+        System.out.println("------------------------------------------");
 
+        ArrayList<Item> sorted = table.getItemSortedBasedOnTheirVolume();
+        for(Item item: sorted){
+            System.out.println(item);
+        }
+
+        Item maxItem = table.getItemWithMaxVolume();
+        System.out.println("Max item: " + maxItem);
+        Item minItem = table.getItemWithMinVolume();
+        System.out.println("Min item: " + minItem);
+
+        System.out.println("------------------------------------------");
+        Item[] sortItems = table.sortItems();
+        Table.printItems(sortItems);
+
+
+        System.out.println("------------------------------------------");
+        Item[] sortedItem1 = table.sortItems(Table.SortMetric.Volume);
+        Table.printItems(sortedItem1);
+
+        System.out.println("------------------------------------------");
+
+        Item[] sortedItem2 = table.sortItems(Table.SortMetric.Height);
+        Table.printItems(sortedItem2);
     }
 }

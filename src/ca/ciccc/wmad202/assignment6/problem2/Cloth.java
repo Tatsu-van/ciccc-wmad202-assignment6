@@ -24,7 +24,7 @@ public class Cloth extends Item {
         super.getProductInfo();
         System.out.print("Materials: ");
         for(Material material : materials){
-            System.out.print(material.getMaterialName() + " , ");
+            System.out.print(material.getMaterialName() + ", ");
         }
         System.out.println();
         System.out.println("----------------------------------");

@@ -26,8 +26,8 @@ public class ShoppingCartTest {
         chickenIngredients.add("oil");
         chickenIngredients.add("cheese");
 
-        Food food1 = new Food(Item.productType.Food, 100, "Chicken", 8.0F, "Canada", 350, 4, chickenIngredients, 2);
-        Food food2 = new Food(Item.productType.Food, 101, "Pasta", 18.0F, "Canada", 250, 3, pastaIngredients, 2);
+        Item food1 = new Food(Item.productType.Food, 100, "Chicken", 8.0F, "Canada", 350, 4, chickenIngredients, 2);
+        Item food2 = new Food(Item.productType.Food, 101, "Pasta", 18.0F, "Canada", 250, 3, pastaIngredients, 2);
 
         Material t_shirtMaterial1 = new Material(Item.productType.Material, null, null, null, null, "cotton", "10");
         Material t_shirtMaterial2 = new Material(Item.productType.Material, null, null, null, null, "Nylon", "11");
@@ -36,7 +36,7 @@ public class ShoppingCartTest {
         materials.add(t_shirtMaterial1);
         materials.add(t_shirtMaterial2);
 
-        Cloth cloth1 = new Cloth(Item.productType.Cloth,701, "T-shirt", 15.0F, "china", 1, materials);
+        Item cloth1 = new Cloth(Item.productType.Cloth,701, "T-shirt", 15.0F, "china", 1, materials);
 
         items.add(drink1);
         items.add(drink2);
@@ -44,11 +44,11 @@ public class ShoppingCartTest {
         items.add(food2);
         items.add(cloth1);
 
-
-        ShoppingCart sp = new ShoppingCart(items);
-        sp.getProductInfo();
-        double totalPrice = sp.getTotalPrice();
+        ShoppingCart sc = new ShoppingCart(items);
+        sc.getProductInfo();
+        double totalPrice = sc.getTotalPrice();
         System.out.println("Total Price: $" + totalPrice);
+
     }
 
 }

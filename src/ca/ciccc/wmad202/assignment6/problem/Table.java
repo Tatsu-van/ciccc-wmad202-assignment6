@@ -1,8 +1,13 @@
 package ca.ciccc.wmad202.assignment6.problem;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Table {
+
+    enum SortMetric{
+        Volume, Height
+    }
 
     private ArrayList<Item> items;
 
@@ -69,5 +74,71 @@ public class Table {
 
     public void addItem(Item item){
         this.items.add(item);
+    }
+
+    public ArrayList<Item> getItemSortedBasedOnTheirVolume(){
+        ArrayList<Item> sortedItem = new ArrayList<>();
+        ArrayList<Item> copyItems = (ArrayList<Item>)(items.clone());
+
+        for (Item item: this.items){
+            double maxValue = Integer.MAX_VALUE;
+            Item currentItem = null;
+            for(Item item2: copyItems){
+                if(item2.getVolume() <= maxValue){
+                    maxValue = item2.getVolume();
+                    currentItem = item2;
+                }
+            }
+            copyItems.remove(currentItem);
+            sortedItem.add(currentItem);
+        }
+        return sortedItem;
+    }
+
+    ArrayList<Item> getItems(){
+        return this.items;
+    }
+
+    public Item getItemWithMaxVolume(){
+        ArrayList<Item> sorted = getItemSortedBasedOnTheirVolume();
+        return sorted.get(sorted.size() - 1);
+    }
+
+    public Item getItemWithMinVolume(){
+        ArrayList<Item> sorted = getItemSortedBasedOnTheirVolume();
+        return sorted.get(0);
+    }
+
+    public Item[] sortItems(){
+        Item[] items = new Item[this.items.size()];
+        for(int i = 0; i < this.items.size(); i++){
+            items[i] = this.items.get(i);
+        }
+        Arrays.sort(items);
+        return items;
+    }
+
+    public Item[] sortItems(SortMetric metric){
+        Item[] items = new Item[this.items.size()];
+        for(int i = 0; i < this.items.size(); i++){
+            items[i] = this.items.get(i);
+        }
+
+        if(metric == SortMetric.Volume){
+            Arrays.sort(items, new ItemVolumeComparator());
+        }else if(metric == SortMetric.Height){
+            Arrays.sort(items, new ItemHeightComparator());
+
+        } else{
+            return null;
+        }
+
+        return items;
+    }
+
+    public static void printItems(Item[] items){
+        for(Item item: items){
+            System.out.println(item);
+        }
     }
 }
